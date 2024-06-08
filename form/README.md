@@ -32,7 +32,7 @@ This project is a React form with validation for required fields, error messages
    ```
 2. Navigate to the project directory:
    ```bash
-   cd react-form-validation
+   cd form
    ```
 3. Install the dependencies:
    ```bash
