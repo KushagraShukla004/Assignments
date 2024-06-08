@@ -1,0 +1,111 @@
+.card {
+  width: 35rem;
+  margin: 10em auto;
+  background-color: #fff;
+  padding: 1.5rem;
+  border: 2px solid black;
+  border-radius: 25px;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+.divider {
+  border: 1px solid rgb(125, 125, 125);
+  margin-top: 10px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  width: 100%;
+  margin: 1rem 2rem 0 0;
+}
+
+.grid-col1,
+.grid-col2 {
+  width: 16rem;
+}
+
+.fields {
+  width: 100%;
+}
+
+.fields input,
+.fields select {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 300;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid #ccc;
+  border-bottom: 3px solid #ccc;
+  border-radius: 3px;
+  outline: none;
+  box-sizing: border-box; /* ensures padding is included in the element's total width and height */
+}
+.fields input:focus {
+  outline: none;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid #55c57a;
+}
+
+.fields input:focus:invalid {
+  border-bottom: 3px solid #ff7730;
+}
+.pass_check {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.indicator {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.indicator > p {
+  font-size: 13px;
+  color: "#000000";
+}
+
+.invalid {
+  color: rgb(184, 23, 23);
+}
+button {
+  font-size: 17px;
+  padding: 0.5em 2em;
+  border: transparent;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  background: dodgerblue;
+  color: white;
+  border-radius: 4px;
+  margin-top: 1rem; /* to add space between the button and the form fields */
+}
+button[disabled] {
+  cursor: help;
+}
+button:hover {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(30, 144, 255, 1) 0%, rgba(0, 212, 255, 1) 100%);
+}
+
+button:active {
+  transform: translate(0em, 0.2em);
+}
+
+.dataList {
+  list-style: none;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 300;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  outline: none;
+  box-sizing: border-box;
+}

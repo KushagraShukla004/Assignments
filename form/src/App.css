@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  background-image: linear-gradient(
+    to right bottom,
+    #100620,
+    #221a38,
+    #362b52,
+    #4d3c6e,
+    #654e8a
+  );
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
