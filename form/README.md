@@ -28,7 +28,7 @@ This project is a React form with validation for required fields, error messages
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/KushagraShukla004/react-form-validation.git
+   git clone https://github.com/KushagraShukla004/Assignments.git
    ```
 2. Navigate to the project directory:
    ```bash
