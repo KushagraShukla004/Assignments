@@ -21,8 +21,7 @@ This project is a React form with validation for required fields, error messages
 - Phone Number (with country code)
 - Country
 - City
-- PAN No.
-- Aadhar No.
+- PAN No. or Aadhar No.
 
 ## Installation
 
