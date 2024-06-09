@@ -54,19 +54,21 @@ This project is a React form with validation for required fields, error messages
 ### App.js
 
 ```javascript
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Form from "./Form";
-import Details from "./Details";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Form from "./components/Form";
+import FormDetails from "./components/FormDetails";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Form} />
-        <Route path="/details" component={Details} />
-      </Switch>
-    </Router>
+    <div className="app">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Form />} />
+          <Route path="/FormDetails" element={<FormDetails />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
