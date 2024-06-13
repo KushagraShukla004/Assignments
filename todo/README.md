@@ -2,6 +2,9 @@
 
 This is a simple To-Do List application built with React. It allows you to add, remove, and mark tasks as complete. It also supports optional sorting, filtering, and localStorage integration to persist tasks.
 
+##click the link below to see the live demo:
+- https://todoapp-kushagrashukla004s-projects.vercel.app/
+
 ## Getting Started
 
 1. Clone the repository:
