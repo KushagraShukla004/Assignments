@@ -7,7 +7,7 @@ This is a simple To-Do List application built with React. It allows you to add, 
 1. Clone the repository:
 
    ```sh
-   git clone <YOUR_GITHUB_REPO_URL>
+   git clone https://github.com/KushagraShukla004/Assignments.git/todo
    cd react-todo-list
    ```
 
