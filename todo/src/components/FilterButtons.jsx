@@ -22,7 +22,7 @@ const FilterButtons = () => {
       </select>
 
       <button
-        className="text-sm px-2 py-1 ml-2 bg-aquaCyan text-black rounded hover:bg-darkAqua"
+        className="text-sm px-2 py-1 ml-2 bg-aquaCyan text-black rounded hover:bg-darkAqua truncate"
         onClick={() => dispatch(markAllCompleted())}
       >
         Mark All Completed

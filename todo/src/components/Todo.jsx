@@ -35,7 +35,7 @@ const Todo = () => {
       <div className="flex items-center mb-4">
         <input
           type="text"
-          className="flex-grow w-3/4 p-2 text-black border-b-2 border-gray-300 focus:outline-none focus:border-violet-900"
+          className="flex-grow w-3/4 p-2 text-black border-b-2 border-gray-300 focus:outline-none focus:border-blue-600"
           name="addTodoInput"
           id="addTodoInput"
           value={newTodo}
@@ -58,11 +58,11 @@ const Todo = () => {
       </div>
 
       {/* filter and search */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <FilterButtons />
         <div className="flex items-center mb-4">
           <input
-            className="flex-grow w-3/4 p-2 text-black border-b-2 border-gray-300 focus:outline-none focus:border-violet-900"
+            className="flex-grow w-3/4 p-2 text-black border-b-2 border-gray-300 focus:outline-none focus:border-blue-600"
             type="text"
             placeholder="Search Todos"
             value={searchTerm}

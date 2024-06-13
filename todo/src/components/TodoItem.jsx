@@ -18,7 +18,7 @@ const TodoItem = ({ todo, index }) => {
   };
 
   return (
-    <div className="flex flex-col  sm:flex-row sm:items-center justify-between text-black bg-aquaCyan border-aquaCyan rounded py-2 px-2 mb-3 shadow-xl hover:shadow-md ">
+    <div className="flex flex-col  sm:flex-row sm:items-center justify-between text-black bg-aquaCyan border-aquaCyan rounded p-2 mb-3 shadow-xl hover:shadow-md ">
       <div className="flex items-center">
         <span className="mr-4 text-black">{index + 1}.</span>
         {isEditing ? (
@@ -26,7 +26,7 @@ const TodoItem = ({ todo, index }) => {
             type="text"
             value={newText}
             onChange={(e) => setNewText(e.target.value)}
-            className="mr-4 p-1 border border-gray-400 focus:outline-none focus:border-violet-900"
+            className="mr-4 p-1 text-black border-b-2 border-gray-300 focus:outline-none focus:border-blue-600"
           />
         ) : (
           <span className={`mr-4 ${todo.completed ? "line-through text-gray-400" : ""}`}>
@@ -34,7 +34,7 @@ const TodoItem = ({ todo, index }) => {
           </span>
         )}
       </div>
-      <div className="space-x-3 ml-8">
+      <div className="space-x-3 mt-2 sm:ml-8">
         <button
           className="ml-2 p-2 sm:px-3 bg-violet-600 text-white rounded hover:bg-violet-800 focus:outline-none"
           onClick={handleEdit}
