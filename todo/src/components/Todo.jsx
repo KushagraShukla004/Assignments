@@ -47,7 +47,7 @@ const Todo = () => {
               handleAddTodoClick();
             }
           }}
-          placeholder="Add what you want to do and click +"
+          placeholder="Add what you want to do and click + or press Enter"
         />
         <button
           className="size-9 ml-4 px-1.5 bg-aquaCyan text-black rounded hover:bg-darkAqua focus:outline-none"
