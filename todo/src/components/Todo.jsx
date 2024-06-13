@@ -8,7 +8,7 @@ import TodoList from "./TodoList";
 
 const Todo = () => {
   const dispatch = useDispatch();
-  const [newTodo, setNewTodo] = useState();
+  const [newTodo, setNewTodo] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleAddTodo = (text) => {

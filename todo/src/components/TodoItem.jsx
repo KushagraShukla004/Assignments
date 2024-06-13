@@ -69,8 +69,7 @@ const TodoItem = ({ todo, index }) => {
 };
 
 TodoItem.propTypes = {
-  todo: PropTypes.any,
+  todo: PropTypes.object,
   index: PropTypes.number,
 };
-
 export default TodoItem;

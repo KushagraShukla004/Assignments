@@ -12,6 +12,7 @@ import {
 const initialState = { todos: [], filter: "ALL", searchTerm: "" };
 
 const todoReducer = (state = initialState, action) => {
+  let filteredTodos;
   switch (action.type) {
     case ADD_TODO:
       return {
@@ -54,10 +55,22 @@ const todoReducer = (state = initialState, action) => {
       };
 
     case FILTER_TODOS:
+      switch (action.payload.filter) {
+        case "COMPLETED":
+          filteredTodos = state.todos.filter((todo) => todo.completed);
+          break;
+        case "INCOMPLETE":
+          filteredTodos = state.todos.filter((todo) => !todo.completed);
+          break;
+        default:
+          filteredTodos = state.todos;
+          break;
+      }
+
       return {
-        todos: state.todos,
+        ...state,
         filter: action.payload.filter,
-        searchTerm: state.searchTerm,
+        todos: filteredTodos,
       };
 
     case UPDATE_SEARCH_TERM:
