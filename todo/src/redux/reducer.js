@@ -1,7 +1,6 @@
-// reducers.js
 import {
   ADD_TODO,
-  TOGGLE_TODO,
+  EDIT_TODO,
   REMOVE_TODO,
   MARK_COMPLETED,
   MARK_INCOMPLETE,
@@ -21,13 +20,12 @@ const todoReducer = (state = initialState, action) => {
         searchTerm: state.searchTerm,
       };
 
-    case TOGGLE_TODO:
+    case EDIT_TODO:
       return {
+        ...state,
         todos: state.todos.map((todo, index) =>
-          index === action.payload.id ? { ...todo, completed: !todo.completed } : todo
+          index === action.payload.id ? { ...todo, text: action.payload.newText } : todo
         ),
-        filter: state.filter,
-        searchTerm: state.searchTerm,
       };
 
     case REMOVE_TODO:

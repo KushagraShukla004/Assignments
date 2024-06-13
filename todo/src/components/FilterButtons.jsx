@@ -10,7 +10,7 @@ const FilterButtons = () => {
   };
 
   return (
-    <div className="flex space-x-4 items-center">
+    <div className="flex space-x-4 items-center mb-4">
       <select
         className="text-sm px-2 py-1 rounded border border-gray-300 focus:outline-none text-black"
         value={currentFilter}
@@ -22,7 +22,7 @@ const FilterButtons = () => {
       </select>
 
       <button
-        className="text-sm px-2 py-1 ml-2 bg-aquaCyan text-darkGray rounded hover:bg-darkAqua"
+        className="text-sm px-2 py-1 ml-2 bg-aquaCyan text-black rounded hover:bg-darkAqua"
         onClick={() => dispatch(markAllCompleted())}
       >
         Mark All Completed
