@@ -80,7 +80,7 @@ button {
   padding: 0.5em 2em;
   border: transparent;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-  background: dodgerblue;
+  background: #1e90ff;
   color: white;
   border-radius: 4px;
   margin-top: 1rem; /* to add space between the button and the form fields */
