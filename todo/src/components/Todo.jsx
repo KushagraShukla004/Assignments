@@ -28,7 +28,7 @@ const Todo = () => {
   };
 
   return (
-    <div className="p-4 rounded  wrapper">
+    <div className="p-4 rounded wrapper">
       <h2 className="mt-3 mb-5 text-2xl font-bold text-center ">Todo App</h2>
 
       {/* input */}
