@@ -4,7 +4,7 @@ This is a feature-rich dashboard application built with React, React Router, and
 
 ## Features
 
-- **Dashboard**: Overview of key metrics and charts.
+- **Shoppy Dashboard**: Overview of key metrics and charts.
 - **Orders**: Manage and track customer orders.
 - **Employees**: Manage employee information.
 - **Customers**: Manage customer details.
