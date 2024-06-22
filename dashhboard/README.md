@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# React Dashboard Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a feature-rich dashboard application built with React, React Router, and various Syncfusion components. The application includes a variety of pages and charts to provide comprehensive data visualization and management capabilities.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Dashboard**: Overview of key metrics and charts.
+- **Orders**: Manage and track customer orders.
+- **Employees**: Manage employee information.
+- **Customers**: Manage customer details.
+- **Kanban Board**: Task management using Kanban methodology.
+- **Editor**: Rich text editor for document creation.
+- **Calendar**: Calendar for scheduling and events.
+- **Charts**: A variety of charts for data visualization, including Line, Area, Bar, Pie, Financial, Color Mapping, Pyramid, and Stacked charts.
+- **Theme Settings**: Customize the theme color and mode (Dark/Light).
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React
+- React Router
+- Syncfusion Components
+- CSS for styling
+- LocalStorage for theme persistence
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+1. Clone the repository:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```bash
+   git clone https://github.com/your-username/react-dashboard.git
+   cd react-dashboard
+   ```
 
-### `npm run build`
+2. Install the dependencies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Start the development server:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   npm start
+   ```
 
-### `npm run eject`
+4. Open your browser and navigate to `http://localhost:3000` to see the application.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Theme Settings**: Click the settings icon in the bottom right corner to open the theme settings. You can switch between light and dark modes and choose your preferred theme color.
+- **Navigation**: Use the sidebar to navigate between different pages and features of the dashboard.
+- **Data Visualization**: Explore various charts and data visualizations provided in the application.
