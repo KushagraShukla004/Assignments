@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Font */
+@font-face {
+  font-family: Helvetica;
+  src: url("./assets/Spotify-Font/HelveticaNeueRoman.otf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: Gotham;
+  src: url("./assets/Spotify-Font/GothamBook.ttf");
+  font-weight: 500;
+}
+
+:root {
+  --font-base: "Helvetica", sans-serif;
+  --font-base1: "Gotham", sans-serif;
+  --font-base2: "Roboto", sans-serif;
+}
