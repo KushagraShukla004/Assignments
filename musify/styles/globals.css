@@ -17,5 +17,8 @@
 :root {
   --font-base: "Helvetica", sans-serif;
   --font-base1: "Gotham", sans-serif;
-  --font-base2: "Roboto", sans-serif;
+}
+
+*{
+  font-family: var(--font-base1);
 }

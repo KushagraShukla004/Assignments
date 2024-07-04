@@ -1,4 +1,4 @@
-import { cn } from "../../../lib/utils.tsx";
+import { cn } from "../lib/utils.tsx";
 import PropTypes from "prop-types";
 const Card = ({ className, children }) => {
   return (

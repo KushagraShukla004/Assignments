@@ -9,8 +9,9 @@ module.exports = {
     extend: {
       colors: {
         secondary: "#121212",
+        actionColor: "#18D860",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 };
