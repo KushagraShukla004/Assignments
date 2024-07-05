@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+import useSpotify from "@/hooks/useSpotify";
 import {
   HomeIcon,
   MagnifyingGlassIcon,
@@ -7,13 +9,25 @@ import {
   ArrowLeftStartOnRectangleIcon,
 } from "@heroicons/react/24/outline";
 import { signOut, useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 
 const Sidebar = () => {
+  const spotifyApi = useSpotify();
   const { data: session, status } = useSession();
+  const [playlists, setPlaylists] = useState();
+  const [playlistID, setPlaylistID] = useState();
 
-  console.log("session in Sidebar :", session);
+  console.log("you picked playlistID :", playlistID);
+  useEffect(() => {
+    if (spotifyApi.getAccessToken()) {
+      spotifyApi.getUserPlaylists().then((data) => {
+        setPlaylists(data.body.items);
+      });
+    }
+  }, [session, spotifyApi]);
+
   return (
-    <div className="scrollbar-hide h-screen overflow-y-scroll rounded-lg border-r border-gray-900 p-3 text-xs text-gray-400 sm:w-80 sm:text-sm">
+    <div className="h-screen overflow-y-scroll rounded-lg border-r border-gray-900 p-3 text-xs text-gray-400 scrollbar-hide sm:w-80 sm:text-sm">
       <div className="space-y-5 rounded-xl bg-secondary p-5">
         <button
           className="flex items-center gap-2 hover:text-white"
@@ -48,24 +62,24 @@ const Sidebar = () => {
         </div>
         <hr className="rounded-lg border-t-[2px] border-gray-600" />
         {/* playlist */}
-        <p className="cursor-pointer hover:text-white">Playlist names...</p>
-        <p className="cursor-pointer hover:text-white">Playlist names...</p>
-        <p className="cursor-pointer hover:text-white">Playlist names...</p>
-        <p className="cursor-pointer hover:text-white">Playlist names...</p>
-        <p className="cursor-pointer hover:text-white">Playlist names...</p>
-        <p className="cursor-pointer hover:text-white">Playlist names...</p>
-        <p className="cursor-pointer hover:text-white">Playlist names...</p>
-        <p className="cursor-pointer hover:text-white">Playlist names...</p>
-        <p className="cursor-pointer hover:text-white">Playlist names...</p>
-        <p className="cursor-pointer hover:text-white">Playlist names...</p>
-        <p className="cursor-pointer hover:text-white">Playlist names...</p>
-        <p className="cursor-pointer hover:text-white">Playlist names...</p>
-        <p className="cursor-pointer hover:text-white">Playlist names...</p>
-        <p className="cursor-pointer hover:text-white">Playlist names...</p>
-        <p className="cursor-pointer hover:text-white">Playlist names...</p>
-        <p className="cursor-pointer hover:text-white">Playlist names...</p>
-        <p className="cursor-pointer hover:text-white">Playlist names...</p>
-        <p className="cursor-pointer hover:text-white">Playlist names...</p>
+        {playlists?.map((playlist) => (
+          <div
+            key={playlist.id}
+            className="flex cursor-pointer items-center gap-2 hover:text-white"
+            onClick={() => {
+              setPlaylistID(playlist.id);
+            }}
+          >
+            {playlist.images.length > 0 && (
+              <img
+                src={playlist.images[0].url}
+                alt={playlist.name}
+                className="h-8 w-8 rounded-full"
+              />
+            )}
+            <p>{playlist.name}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
