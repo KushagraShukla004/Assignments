@@ -7,9 +7,8 @@ import {
   QueueListIcon,
   PlusIcon,
   HeartIcon,
-  ArrowLeftStartOnRectangleIcon,
 } from "@heroicons/react/24/outline";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 
@@ -28,15 +27,8 @@ const Sidebar = () => {
   }, [session, spotifyApi]);
 
   return (
-    <div className="max-phone:hidden h-screen min-w-[90px] overflow-y-scroll rounded-lg border-r border-gray-900 p-2 px-2 text-xs text-gray-400 scrollbar-hide sm:w-80 sm:text-sm">
+    <div className="max-phone:hidden h-screen min-w-[90px] overflow-y-scroll rounded-lg border-r border-gray-900 p-2 px-2 pb-36 text-xs text-gray-400 scrollbar-hide sm:w-80 sm:text-sm">
       <div className="space-y-5 rounded-xl bg-secondary p-5">
-        <button
-          className="flex items-center gap-2 hover:text-white"
-          onClick={() => signOut()}
-        >
-          <ArrowLeftStartOnRectangleIcon className="size-6" />
-          <p className="max-sm:hidden">Log Out</p>
-        </button>
         <button className="flex items-center gap-2 hover:text-white">
           <HomeIcon className="size-6" />
           <p className="max-sm:hidden">Home</p>
