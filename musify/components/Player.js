@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+
 import { playlistState } from "@/atoms/playlistAtom";
 import { currentTrackIdState, isPlayingState } from "@/atoms/songAtom";
 import useSongInfo from "@/hooks/useSongInfo";
@@ -71,6 +72,7 @@ const Player = () => {
   }, [currentTrackId, spotifyApi, session]);
 
   return (
+    //player functions will not work if the spotify account is not premium
     <div className="grid h-24 grid-cols-3 bg-gradient-to-b from-black to-gray-950 px-2 text-xs text-white md:px-8 md:text-base">
       {/* Left */}
       <div className="flex items-center space-x-4">
