@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.4",
-    "clsx": "^2.1.1",
     "lodash": "^4.17.21",
     "next": "14.2.4",
     "next-auth": "^4.24.7",
@@ -19,7 +18,6 @@
     "react-dom": "^18",
     "recoil": "^0.7.7",
     "spotify-web-api-node": "^5.0.2",
-    "tailwind-merge": "^2.3.0",
     "tailwind-scrollbar-hide": "^1.1.7"
   },
   "devDependencies": {

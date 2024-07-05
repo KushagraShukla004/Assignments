@@ -28,37 +28,37 @@ const Sidebar = () => {
   }, [session, spotifyApi]);
 
   return (
-    <div className="h-screen w-48 overflow-y-scroll rounded-lg border-r border-gray-900 p-2 px-2 text-xs text-gray-400 scrollbar-hide sm:w-80 sm:text-sm">
+    <div className="max-phone:hidden h-screen min-w-[90px] overflow-y-scroll rounded-lg border-r border-gray-900 p-2 px-2 text-xs text-gray-400 scrollbar-hide sm:w-80 sm:text-sm">
       <div className="space-y-5 rounded-xl bg-secondary p-5">
         <button
           className="flex items-center gap-2 hover:text-white"
           onClick={() => signOut()}
         >
-          <ArrowLeftStartOnRectangleIcon className="size-5" />
-          <p>Log Out</p>
+          <ArrowLeftStartOnRectangleIcon className="size-6" />
+          <p className="max-sm:hidden">Log Out</p>
         </button>
         <button className="flex items-center gap-2 hover:text-white">
-          <HomeIcon className="size-5" />
-          <p>Home</p>
+          <HomeIcon className="size-6" />
+          <p className="max-sm:hidden">Home</p>
         </button>
         <button className="mt-2 flex items-center gap-2 hover:text-white">
-          <MagnifyingGlassIcon className="size-5" />
-          <p>Search</p>
+          <MagnifyingGlassIcon className="size-6" />
+          <p className="max-sm:hidden">Search</p>
         </button>
       </div>
       <hr className="rounded-lg border-t-[8px] border-black" />
       <div className="space-y-5 rounded-xl bg-secondary p-5">
         <button className="flex items-center gap-1 hover:text-white">
-          <HeartIcon className="size-5" />
-          <p>Liked Songs</p>
+          <HeartIcon className="size-6" />
+          <p className="max-sm:hidden">Liked Songs</p>
         </button>
         <div className="flex w-full items-center justify-between">
           <button className="flex items-center gap-1 hover:text-white">
-            <QueueListIcon className="size-5" />
+            <QueueListIcon className="size-5 max-sm:hidden" />
             <p className="max-sm:hidden">Your Library</p>
           </button>
           <button className="hover:text-white">
-            <PlusIcon className="size-5" />
+            <PlusIcon className="size-5 max-sm:mr-2" />
           </button>
         </div>
         <hr className="rounded-lg border-t-[2px] border-gray-600" />
@@ -75,10 +75,10 @@ const Sidebar = () => {
               <img
                 src={playlist.images[0].url}
                 alt={playlist.name}
-                className="h-8 w-8 rounded-full"
+                className="h-8 w-8 rounded-lg"
               />
             )}
-            <p>{playlist.name}</p>
+            <p className="max-sm:hidden">{playlist.name}</p>
           </div>
         ))}
       </div>

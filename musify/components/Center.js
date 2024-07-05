@@ -27,6 +27,13 @@ const colors = [
   "from-rose-500",
   "from-amber-500",
 ];
+
+const millisToHoursAndMinutes = (millis) => {
+  const hours = Math.floor(millis / 3600000);
+  const minutes = Math.floor((millis % 3600000) / 60000);
+  return `${hours > 0 ? hours + " hr " : ""}${minutes} min`;
+};
+
 const Center = () => {
   const spotifyApi = useSpotify();
   const { data, status } = useSession();
@@ -50,7 +57,7 @@ const Center = () => {
   console.log("playlist :", playlist);
 
   return (
-    <div className="flex-grow py-2 pr-2">
+    <div className="h-screen flex-grow overflow-y-scroll py-2 pr-2 scrollbar-hide">
       <header className="absolute right-8 top-5">
         <div className="flex cursor-pointer items-center space-x-3 rounded-full bg-black bg-opacity-75 p-1 text-white opacity-90 hover:opacity-70 sm:pr-2">
           <img
@@ -72,11 +79,13 @@ const Center = () => {
         />
         <div className="flex flex-col gap-4 pr-2 sm:w-full">
           <p>Playlist</p>
-          <h1 className="text-2xl sm:text-xl md:text-3xl lg:text-5xl">
+          <h1 className="text-xl sm:text-xl md:text-3xl lg:text-5xl">
             <b>{playlist?.name}</b>
           </h1>
-          <p>
+          <p className="space-x-2">
             <b>{playlist?.owner?.display_name}</b>
+            {/* <b>:</b>
+            <b>{millisToHoursAndMinutes(totalDuration)}</b> */}
           </p>
         </div>
       </section>
