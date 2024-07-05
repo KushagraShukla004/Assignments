@@ -58,3 +58,7 @@ Open http://localhost:3000 with your browser to see the result.
 - **Login:** Click the login button and authorize the application using your Spotify account.
 - **Playlists:** Browse through your - playlists and select one to view the songs.
 - **Playback:** Click on a song to play it directly in the browser (requires Spotify Premium).
+
+## License
+
+- This project is licensed under the MIT License.
