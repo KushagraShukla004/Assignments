@@ -13,12 +13,24 @@
   src: url("../assets/Spotify-Font/GothamBook.ttf");
   font-weight: 500;
 }
+@font-face {
+  font-family: ProductSans;
+  src: url("../assets/Spotify-Font/ProductSans-Regular.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: Circular;
+  src: url("../assets/Spotify-Font/circular-std-medium-500.ttf");
+  font-weight: 600;
+}
 
 :root {
   --font-base: "Helvetica", sans-serif;
   --font-base1: "Gotham", sans-serif;
+  --font-base2: "ProductSans", sans-serif;
+  --font-base3: "Circular", sans-serif;
 }
 
-*{
-  font-family: var(--font-base1);
+* {
+  font-family: var(--font-base3);
 }
