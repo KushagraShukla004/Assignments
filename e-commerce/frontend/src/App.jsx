@@ -1,10 +1,9 @@
-import { Store } from "lucide-react";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
-    <div>
-      <Store color="red" strokeWidth={2} />
-      <h1 className="underline text-3xl uppercase">Shopify</h1>
+    <div className="h-screen bg-black p-4">
+      <Navbar />
     </div>
   );
 };
