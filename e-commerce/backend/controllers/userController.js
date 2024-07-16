@@ -121,6 +121,59 @@ const updateCurrentUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
+const deleteUserById = asyncHandler(async (req, res) => {
+  //params takes the value defined in api url route(/:id)
+  const user = await User.findById(req.params.id);
+
+  if (user) {
+    if (user.isAdmin) {
+      res.status(400);
+      throw new Error("Admins cannot be deleted!");
+    }
+
+    await User.deleteOne({ _id: user._id });
+    res.json({ message: `${user.username}! is successfully removed` });
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
+});
+
+const getUserById = asyncHandler(async (req, res) => {
+  //select("-password") basically ignores the password field when showing the user data.
+  const user = await User.findById(req.params.id).select("-password");
+
+  if (user) {
+    res.json(user);
+  } else {
+    res.status(404);
+    throw new Error("User was not found.");
+  }
+});
+
+const updateUserById = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
+  const { username, email, isAdmin } = req.body;
+
+  if (user) {
+    user.username = username || user.username;
+    user.email = email || user.email;
+    user.isAdmin = Boolean(isAdmin);
+
+    const updatedUser = await user.save();
+
+    res.json({
+      _id: updatedUser._id,
+      username: updatedUser.username,
+      email: updatedUser.email,
+      isAdmin: updatedUser.isAdmin,
+    });
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
+});
+
 export {
   createUser,
   loginUser,
@@ -128,4 +181,7 @@ export {
   getAllUsers,
   getCurrentUserProfile,
   updateCurrentUserProfile,
+  deleteUserById,
+  getUserById,
+  updateUserById,
 };

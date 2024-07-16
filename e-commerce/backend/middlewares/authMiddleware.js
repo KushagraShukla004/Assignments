@@ -11,6 +11,7 @@ const authenticate = asyncHandler(async (req, res, next) => {
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
+      //select("-password") basically ignores the password field when showing the user data.
       req.user = await User.findById(decoded.userId).select("-password");
       next();
     } catch (error) {
