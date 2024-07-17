@@ -11,6 +11,18 @@ import { useCycle } from "framer-motion";
 }
 const NavItem = ({ icon: Icon, text, link }) => {
   const [iconHover, cycleIconHover] = useCycle(false, true);
+  const containerVariants = {
+    hover: {
+      perspective: 1000,
+      transform: "scale(1.05)",
+      transition: { duration: 0.3, ease: "easeInOut" },
+    },
+    rest: {
+      perspective: 1000,
+      transform: "scale(1)",
+      transition: { duration: 0.3, ease: "easeInOut" },
+    },
+  };
 
   const iconVariants = {
     open: {
@@ -27,26 +39,35 @@ const NavItem = ({ icon: Icon, text, link }) => {
 
   return (
     <motion.div
-      as={Link}
-      to={link}
-      className="flex transform items-center border transition-transform hover:translate-x-2"
+      variants={containerVariants}
+      initial="rest"
+      whileHover="hover"
       onHoverStart={() => cycleIconHover()}
       onHoverEnd={() => cycleIconHover()}
     >
-      {Icon && (
-        <Icon size={40} className="px-2" strokeWidth={iconHover ? "2" : "1"} />
-      )}
+      <Link
+        to={link}
+        className="flex transform cursor-pointer items-center hover:w-[20rem] hover:rounded-l-xl hover:bg-fuchsia-600"
+      >
+        {Icon && (
+          <Icon
+            size={40}
+            className="px-2"
+            strokeWidth={iconHover ? "2" : "1"}
+          />
+        )}
 
-      {iconHover && (
-        <motion.span
-          variants={iconVariants}
-          initial="closed"
-          animate="open"
-          className="px-2 font-bold tracking-wide"
-        >
-          {text}
-        </motion.span>
-      )}
+        {iconHover && (
+          <motion.span
+            variants={iconVariants}
+            initial="closed"
+            animate="open"
+            className="px-2 font-bold tracking-widest"
+          >
+            {text}
+          </motion.span>
+        )}
+      </Link>
     </motion.div>
   );
 };

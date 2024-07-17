@@ -29,21 +29,27 @@ const Navigation = () => {
   };
 
   const sidebarVariants = {
-    open: { width: "12%", transition: { duration: 0.3, ease: "easeInOut" } },
-    closed: { width: "5%", transition: { duration: 0.3, ease: "easeInOut" } },
+    open: {
+      width: "15rem",
+      transition: { duration: 0.3, ease: "easeInOut" },
+    },
+    closed: {
+      width: "5rem",
+      transition: { duration: 0.3, ease: "easeInOut" },
+    },
   };
 
   return (
     <motion.div
-      className={`z-[999] ${showSidebar ? "hidden" : "flex"} flex h-screen justify-between bg-slate-900 p-4 text-white max-md:hidden`}
+      className={`z-[999] ${showSidebar ? "hidden" : "flex"} flex h-screen w-[10%] flex-col justify-between overflow-hidden rounded-r-3xl bg-zinc-800 p-4 text-white max-phone:hidden`}
       variants={sidebarVariants}
       initial="closed"
       whileHover="open"
       onHoverStart={cycleSidebarHover}
       onHoverEnd={cycleSidebarHover}
     >
-      <div className="flex flex-col space-y-10 border border-red-600">
-        <motion.div className="flex items-center">
+      <div className="flex flex-col space-y-7">
+        <motion.div className="flex cursor-pointer items-center">
           <motion.img
             src={LogoFilled}
             alt="Logo1"
@@ -56,7 +62,8 @@ const Navigation = () => {
               initial={{ opacity: 0, display: "none" }}
               animate={{ opacity: 1, display: "block" }}
               transition={{ delay: 0.2, duration: 0.2, ease: "easeInOut" }}
-              className="px-2 text-3xl tracking-wide"
+              className={`px-2 text-3xl tracking-wide ${sidebarHover && "block"} hover:max-sm:hidden`}
+              style={{ display: sidebarHover ? "block" : "none" }}
             >
               Shopify
             </motion.h1>
@@ -67,6 +74,13 @@ const Navigation = () => {
         <NavItem icon={ShoppingCart} text="CART" link="/cart" />
         <NavItem icon={Heart} text="Favorites" link="/favorite" />
       </div>
+
+      <ul>
+        <li>
+          <NavItem icon={LogIn} text="LogIn" link="/login" />
+          <NavItem icon={UserRoundPlus} text="Register" link="/register" />
+        </li>
+      </ul>
     </motion.div>
   );
 };

@@ -11,9 +11,13 @@
   font-style: normal;
 }
 
+html,
 body {
-  background: #0f0f10;
+  height: 100%;
+  margin: 0;
+  padding: 0;
   color: #fff;
+  @apply bg-gradient-to-r from-[#0f0f10] to-[#161622];
 }
 
 input,
