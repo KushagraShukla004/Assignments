@@ -1,10 +1,17 @@
-import Navbar from "./components/Navbar";
+import { Outlet } from "react-router-dom";
+import Navigation from "./pages/Auth/Navigation";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
-    <div className="h-screen bg-black p-4">
-      <Navbar />
-    </div>
+    <>
+      <ToastContainer />
+      <Navigation />
+      <main className="py-3">
+        <Outlet />
+      </main>
+    </>
   );
 };
 
