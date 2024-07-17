@@ -11,6 +11,18 @@ import { Link } from "react-router-dom";
 }
 
 const NavItem = ({ icon: Icon, text, link, sidebarHover }) => {
+  const containerVariants = {
+    hover: {
+      perspective: 1000,
+      transform: "scale(1.05)",
+      transition: { duration: 0.3, ease: "easeInOut" },
+    },
+    rest: {
+      perspective: 1000,
+      transform: "scale(1)",
+      transition: { duration: 0.3, ease: "easeInOut" },
+    },
+  };
   const textVariants = {
     open: {
       opacity: 1,
@@ -25,12 +37,12 @@ const NavItem = ({ icon: Icon, text, link, sidebarHover }) => {
   };
 
   return (
-    <motion.div className="flex items-center">
+    <motion.div variants={containerVariants} initial="rest" whileHover="hover">
       <Link
         to={link}
-        className="flex transform cursor-pointer items-center hover:w-[20rem] hover:rounded-l-xl hover:bg-fuchsia-600"
+        className="flex transform cursor-pointer items-center hover:w-[42rem] hover:rounded-l-xl hover:bg-fuchsia-600"
       >
-        {Icon && <Icon size={40} className="px-2" />}
+        {Icon && <Icon size={40} className="px-2" strokeWidth={2} />}
 
         {sidebarHover && (
           <motion.span

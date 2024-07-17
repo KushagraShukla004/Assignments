@@ -34,11 +34,11 @@ const Navigation = () => {
   const sidebarVariants = {
     open: {
       width: "15rem",
-      transition: { duration: 0.3, ease: "easeInOut", staggerChildren: 0.25 },
+      transition: { duration: 0.3, ease: "easeInOut" },
     },
     closed: {
       width: "5rem",
-      transition: { duration: 0.3, ease: "easeInOut", staggerChildren: 0.25 },
+      transition: { duration: 0.3, ease: "easeInOut" },
     },
   };
 
