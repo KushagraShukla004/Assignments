@@ -41,23 +41,23 @@ const createUser = asyncHandler(async (req, res) => {
 
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
-
   const existingUser = await User.findOne({ email });
 
   if (existingUser) {
     const isPasswordValid = await bcrypt.compare(password, existingUser.password);
-
     if (isPasswordValid) {
       createToken(res, existingUser._id);
-
-      res.status(201).json({
+      res.status(200).json({
         _id: existingUser._id,
         username: existingUser.username,
         email: existingUser.email,
         isAdmin: existingUser.isAdmin,
       });
-      return;
+    } else {
+      res.status(401).json({ message: "Invalid password" });
     }
+  } else {
+    res.status(404).json({ message: "User not found" });
   }
 });
 
