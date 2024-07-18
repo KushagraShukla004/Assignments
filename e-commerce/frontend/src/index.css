@@ -24,3 +24,16 @@ input,
 textarea {
   background-color: #161622;
 }
+
+/* Ensuring that the background color remains consistent when autofilled */
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #161622 inset !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+/* Setting the text color for autofilled input elements */
+input:-webkit-autofill::first-line,
+textarea:-webkit-autofill::first-line {
+  color: #fff;
+}
