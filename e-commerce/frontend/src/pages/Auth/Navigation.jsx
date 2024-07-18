@@ -13,6 +13,7 @@ import {
   Store,
   LogIn,
   UserRoundPlus,
+  CircleUserRound,
 } from "lucide-react";
 import { useCycle } from "framer-motion";
 import NavItem from "../../components/NavItems";
@@ -135,40 +136,46 @@ const Navigation = () => {
 
       {/* Profile and dailog box */}
       <div className="relative">
-        <button
-          onClick={toggleDropdown}
-          className={`flex items-center justify-between text-gray-800 focus:outline-none ${
-            sidebarHover && userInfo
-              ? "transition-width w-48 rounded-lg bg-fuchsia-600 p-2 duration-300"
-              : "w-14"
-          }`}
-        >
-          {userInfo ? (
-            <span
-              className={`flex w-full items-start text-ellipsis font-semibold tracking-tight text-white transition-transform`}
-            >
-              {userInfo.username}
-            </span>
-          ) : (
-            <></>
-          )}
-          {userInfo && (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className={`h-4 w-4 ${dropdownOpen ? "rotate-180 transform" : ""}`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="white"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d={dropdownOpen ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"}
-              />
-            </svg>
-          )}
-        </button>
+        {sidebarHover ? (
+          <button
+            onClick={toggleDropdown}
+            className={`flex items-center justify-between rounded-lg bg-fuchsia-600 p-2 text-gray-800 transition-all duration-300 ease-in-out focus:outline-none ${
+              sidebarHover && userInfo
+                ? "w-48 opacity-100"
+                : "pointer-events-none w-14 opacity-0"
+            }`}
+          >
+            {userInfo && (
+              <span
+                className={`flex w-full items-start truncate font-semibold tracking-tight text-white transition-transform`}
+              >
+                {userInfo.username}
+              </span>
+            )}
+            {userInfo && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className={`h-4 w-4 ${dropdownOpen ? "rotate-180 transform" : ""}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="white"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d={dropdownOpen ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"}
+                />
+              </svg>
+            )}
+          </button>
+        ) : (
+          <CircleUserRound
+            size={40}
+            className="px-2 transition-transform duration-300 ease-in-out"
+            strokeWidth={2}
+          />
+        )}
 
         {sidebarHover && dropdownOpen && userInfo && (
           <ul
