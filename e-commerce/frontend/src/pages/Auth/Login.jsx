@@ -28,7 +28,8 @@ const Login = () => {
       const res = await login({ email, password }).unwrap();
       console.log(res);
       dispatch(setCredentials({ ...res }));
-      // navigate(redirect);
+      navigate(redirect);
+      toast.success(`${userInfo.username} successfully registered`);
     } catch (err) {
       toast.error(err?.data?.message || err.error);
     }
@@ -43,6 +44,7 @@ const Login = () => {
   return (
     <div className="flex h-screen flex-col-reverse divide-[#161622] max-lg:divide-y-4 max-lg:divide-y-reverse lg:flex-row lg:divide-x-4">
       <div className="flex flex-1 flex-col flex-wrap items-center py-10 phone:pl-[5rem] phone:pt-6 lg:py-60 lg:pl-[15rem]">
+        {/* SigIn Form */}
         <div className="w-[65%] rounded-xl border-t-4 border-[#161622] p-6 shadow-sm shadow-fuchsia-600 phone:w-[55%] phone:min-w-[20rem] lg:w-[90%]">
           <h1 className="mb-5 text-3xl font-semibold tracking-wider">
             Sign In
@@ -88,7 +90,7 @@ const Login = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="group h-12 w-40 cursor-pointer rounded-3xl border-2 border-[#9748FF] bg-white shadow-[inset_0px_-2px_0px_1px_#9748FF] transition duration-300 ease-in-out hover:bg-[#9748FF]"
+              className="group h-12 w-[80%] cursor-pointer rounded-3xl border-2 border-[#9748FF] bg-white shadow-[inset_0px_-2px_0px_1px_#9748FF] transition duration-300 ease-in-out hover:bg-[#9748FF] phone:w-40"
             >
               <span className="font-medium text-[#333] group-hover:text-white">
                 {isLoading ? "Signing In..." : "Sign In"}
@@ -110,6 +112,7 @@ const Login = () => {
             </p>
           </div>
         </div>
+        {/* SignIn Form End */}
       </div>
       <div className="relative h-64 phone:max-lg:ml-[5rem] lg:h-full lg:w-[53%]">
         <img
