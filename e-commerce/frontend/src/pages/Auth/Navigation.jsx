@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -12,7 +12,6 @@ import {
   Heart,
   Store,
   LogIn,
-  LogOut,
   UserRoundPlus,
 } from "lucide-react";
 import { useCycle } from "framer-motion";
@@ -27,8 +26,16 @@ const Navigation = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [sidebarHover, cycleSidebarHover] = useCycle(false, true);
 
-  const toggleDropdown = () => {
-    setDropdownOpen((pv) => !pv);
+  // Close dropdown when sidebar is not hovered
+  useEffect(() => {
+    if (!sidebarHover) {
+      setDropdownOpen(false);
+    }
+  }, [sidebarHover]);
+
+  const toggleDropdown = (e) => {
+    e.stopPropagation();
+    setDropdownOpen((prev) => !prev);
   };
 
   const sidebarVariants = {
@@ -64,6 +71,9 @@ const Navigation = () => {
     try {
       await logoutApiCall().unwrap();
       dispatch(logout());
+      setDropdownOpen(false); // Close the dropdown
+      setShowSidebar(false); // Ensure the sidebar is closed
+      cycleSidebarHover(0); // Ensure sidebarHover is set to false
       navigate("/login");
     } catch (error) {
       console.error(error);
@@ -123,35 +133,129 @@ const Navigation = () => {
         />
       </div>
 
+      {/* Profile and dailog box */}
       <div className="relative">
         <button
           onClick={toggleDropdown}
-          className="flex items-center text-gray-800 focus:outline-none"
+          className={`flex items-center justify-between text-gray-800 focus:outline-none ${
+            sidebarHover && userInfo
+              ? "transition-width w-48 rounded-lg bg-fuchsia-600 p-2 duration-300"
+              : "w-14"
+          }`}
         >
           {userInfo ? (
-            <span className="text-white">{userInfo.username}</span>
+            <span
+              className={`flex w-full items-start text-ellipsis font-semibold tracking-tight text-white transition-transform`}
+            >
+              {userInfo.username}
+            </span>
           ) : (
             <></>
           )}
+          {userInfo && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className={`h-4 w-4 ${dropdownOpen ? "rotate-180 transform" : ""}`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="white"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d={dropdownOpen ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"}
+              />
+            </svg>
+          )}
         </button>
+
+        {sidebarHover && dropdownOpen && userInfo && (
+          <ul
+            className={`absolute -right-10 mr-14 rounded-md border-[1px] border-gray-800 bg-[#1e1e21] text-white shadow-[inset_0px_2px_0px_1px_#C026D3] ${
+              !userInfo.isAdmin ? "-top-20" : "-top-[282px]"
+            } `}
+          >
+            {userInfo.isAdmin && (
+              <>
+                <li>
+                  <Link
+                    to="/admin/dashboard"
+                    className="block px-4 py-2 hover:rounded-t-md hover:bg-gray-600"
+                  >
+                    Dashboard
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/admin/productlist"
+                    className="block px-4 py-2 hover:bg-gray-600"
+                  >
+                    Products
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/admin/categorylist"
+                    className="block px-4 py-2 hover:bg-gray-600"
+                  >
+                    Category
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/admin/orderlist"
+                    className="block px-4 py-2 hover:bg-gray-600"
+                  >
+                    Orders
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/admin/userlist"
+                    className="block px-4 py-2 hover:bg-gray-600"
+                  >
+                    Users
+                  </Link>
+                </li>
+              </>
+            )}
+            <li>
+              <Link to="/profile" className="block px-4 py-2 hover:bg-gray-600">
+                Profile
+              </Link>
+            </li>
+            <li>
+              <button
+                onClick={logoutHandler}
+                className="block w-full px-4 py-2 text-left hover:rounded-b-md hover:bg-gray-600"
+              >
+                Logout
+              </button>
+            </li>
+          </ul>
+        )}
       </div>
 
-      <ul>
-        <li>
-          <NavItem
-            icon={LogIn}
-            text="LogIn"
-            link="/login"
-            sidebarHover={sidebarHover}
-          />
-          <NavItem
-            icon={UserRoundPlus}
-            text="Register"
-            link="/register"
-            sidebarHover={sidebarHover}
-          />
-        </li>
-      </ul>
+      {/* Profile end */}
+      {!userInfo && (
+        <ul className="py-2">
+          <li>
+            <NavItem
+              icon={LogIn}
+              text="LogIn"
+              link="/login"
+              sidebarHover={sidebarHover}
+            />
+            <NavItem
+              icon={UserRoundPlus}
+              text="Register"
+              link="/register"
+              sidebarHover={sidebarHover}
+            />
+          </li>
+        </ul>
+      )}
     </motion.div>
   );
 };
