@@ -40,7 +40,7 @@ const NavItem = ({ icon: Icon, text, link, sidebarHover }) => {
     <motion.div variants={containerVariants} initial="rest" whileHover="hover">
       <Link
         to={link}
-        className="flex transform cursor-pointer items-center hover:w-[42rem] hover:rounded-l-xl hover:bg-fuchsia-600"
+        className="flex transform cursor-pointer items-center from-purple-500 from-5% to-indigo-500 to-90% hover:w-[42rem] hover:rounded-l-xl hover:bg-gradient-to-r"
       >
         {Icon && <Icon size={40} className="px-2" strokeWidth={2} />}
 

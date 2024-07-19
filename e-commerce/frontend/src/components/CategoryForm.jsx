@@ -18,7 +18,7 @@ const CategoryForm = ({
         />
 
         <div className="flex justify-between">
-          <button className="rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 px-4 py-2 text-white transition-colors hover:bg-purple-600/90 hover:from-purple-500 hover:to-indigo-500 focus:outline-none focus:ring-2">
+          <button className="rounded-lg bg-gradient-to-r from-indigo-500 from-30% to-purple-500 to-90% px-4 py-2 text-white transition-colors hover:bg-purple-600/90 hover:from-purple-500 hover:to-indigo-500 focus:outline-none focus:ring-2">
             {buttonText}
           </button>
 

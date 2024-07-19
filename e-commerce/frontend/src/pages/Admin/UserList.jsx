@@ -74,7 +74,7 @@ const UserList = () => {
           </Message>
         ) : (
           <div className="flex justify-center overflow-x-auto">
-            <table className="min-w-[90%] divide-y divide-gray-200 border border-fuchsia-500">
+            <table className="min-w-[90%] divide-y divide-gray-200 border border-purple-500">
               <thead className="text-lg">
                 <tr>
                   <th className="hidden px-4 py-2 text-left font-medium uppercase tracking-wider text-white md:table-cell">
