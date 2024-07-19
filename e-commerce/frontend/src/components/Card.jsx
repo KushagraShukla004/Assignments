@@ -8,29 +8,12 @@ const Card = ({ className, children }) => {
     <div
       className={twMerge(
         clsx(
-          "relative h-64 w-48 overflow-hidden rounded-xl bg-[#3d3c3d] drop-shadow-xl",
+          "w-[95%] rounded-xl border-t-4 border-fuchsia-700 p-6 shadow-sm shadow-fuchsia-600 phone:min-w-[20rem] lg:w-[75%]",
           className,
         ),
       )}
     >
-      <div
-        className={twMerge(
-          clsx(
-            "absolute inset-0.5 z-[1] flex items-center justify-center rounded-xl bg-[#323132] text-white opacity-90",
-            className,
-          ),
-        )}
-      >
-        {children}
-      </div>
-      <div
-        className={twMerge(
-          clsx(
-            "absolute -left-1/2 -top-1/2 h-48 w-56 bg-white blur-[50px]",
-            className,
-          ),
-        )}
-      ></div>
+      {children}
     </div>
   );
 };
