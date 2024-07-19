@@ -15,6 +15,7 @@ import Login from "./pages/Auth/Login.jsx";
 import Register from "./pages/Auth/Register.jsx";
 import Profile from "./pages/User/Profile.jsx";
 import UserList from "./pages/Admin/UserList.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,6 +32,8 @@ const router = createBrowserRouter(
         <Route path="userlist" element={<UserList />} />
         <Route path="categorylist" element={<CategoryList />} />
       </Route>
+      {/* Catch-all route for 404 Not Found */}
+      <Route path="*" element={<NotFound />} />
     </Route>,
   ),
 );
