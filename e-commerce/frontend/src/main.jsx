@@ -6,7 +6,9 @@ import { createBrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store.js";
 import PrivateRoute from "./components/PrivateRoute.jsx";
+
 import AdminRoute from "./pages/Admin/AdminRoute.jsx";
+import CategoryList from "./pages/Admin/CategoryList.jsx";
 
 //Auth
 import Login from "./pages/Auth/Login.jsx";
@@ -27,6 +29,7 @@ const router = createBrowserRouter(
       {/* Admin Route */}
       <Route path="/admin" element={<AdminRoute />}>
         <Route path="userlist" element={<UserList />} />
+        <Route path="categorylist" element={<CategoryList />} />
       </Route>
     </Route>,
   ),
