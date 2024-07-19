@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -140,7 +139,7 @@ const Navigation = () => {
           {sidebarHover ? (
             <button
               onClick={toggleDropdown}
-              className={`flex items-center justify-between rounded-lg bg-fuchsia-600 p-2 text-gray-800 transition-all duration-300 ease-in-out focus:outline-none ${
+              className={`flex items-center justify-between rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 p-2 text-gray-800 transition-all duration-300 ease-in-out focus:outline-none ${
                 sidebarHover && userInfo
                   ? "w-48 opacity-100"
                   : "pointer-events-none w-14 opacity-0"
@@ -180,7 +179,7 @@ const Navigation = () => {
 
           {sidebarHover && dropdownOpen && userInfo && (
             <ul
-              className={`absolute -right-10 mr-14 rounded-md border-[1px] border-gray-800 bg-[#1e1e21] text-white shadow-[inset_0px_2px_0px_1px_#C026D3] ${
+              className={`absolute -right-10 mr-14 rounded-md border-[1px] border-gray-800 bg-[#1e1e21] text-white shadow-[inset_0px_2px_0px_1px_#a855f7] ${
                 !userInfo.isAdmin ? "-top-20" : "-top-[282px]"
               } `}
             >
