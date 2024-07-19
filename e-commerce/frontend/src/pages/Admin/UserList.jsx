@@ -9,6 +9,7 @@ import {
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import Message from "../../components/Message";
+import Card from "../../components/Card";
 
 const UserList = () => {
   // Fetch users
@@ -61,7 +62,7 @@ const UserList = () => {
 
   return (
     <div className="flex h-dvh w-dvw justify-center py-20 max-lg:pl-[4rem] lg:pl-[2rem]">
-      <div className="w-[95%] rounded-xl border-t-4 border-fuchsia-700 p-6 shadow-sm shadow-fuchsia-600 phone:min-w-[20rem] lg:w-[75%]">
+      <Card>
         <h1 className="mb-5 flex justify-center text-3xl font-semibold tracking-wider max-phone:text-2xl">
           All Users
         </h1>
@@ -182,7 +183,7 @@ const UserList = () => {
             </table>
           </div>
         )}
-      </div>
+      </Card>
     </div>
   );
 };
