@@ -142,7 +142,7 @@ const Profile = () => {
               </button>
               <Link
                 to="/user-orders"
-                className="m-1 rounded-lg bg-fuchsia-700 p-2 text-white hover:bg-fuchsia-600 max-phone:mt-3 max-phone:w-[50%]"
+                className="rounded-lg bg-gradient-to-r from-indigo-500 from-30% to-purple-500 to-90% p-3 font-bold tracking-wider text-white transition-colors hover:bg-purple-600/90 hover:from-purple-500 hover:to-indigo-500 focus:outline-none focus:ring-2"
               >
                 My Orders
               </Link>
