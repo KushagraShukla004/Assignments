@@ -21,7 +21,8 @@ body {
 }
 
 input,
-textarea {
+textarea,
+select {
   background-color: #161622;
 }
 
