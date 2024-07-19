@@ -115,14 +115,11 @@ const CategoryList = () => {
         />
         <br />
         <hr />
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap gap-2">
           {localCategories.map((category) => (
-            <div
-              key={category._id}
-              className="flex-grow basis-1/4 p-3 max-md:basis-1/2 max-sm:basis-full"
-            >
+            <div key={category._id} className="flex-shrink-0 py-2">
               <button
-                className="relative w-full p-[3px]"
+                className="relative min-w-min p-[3px]"
                 onClick={() => {
                   setModalVisible(true);
                   setSelectedCategory(category);
