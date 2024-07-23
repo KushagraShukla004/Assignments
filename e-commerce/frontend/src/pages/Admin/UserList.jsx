@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import Message from "../../components/Message";
 import Card from "../../components/Card";
+import AdminMenu from "./AdminMenu";
 
 const UserList = () => {
   // Fetch users
@@ -62,6 +63,7 @@ const UserList = () => {
 
   return (
     <div className="flex h-dvh w-dvw justify-center py-20 max-lg:pl-[4rem] lg:pl-[2rem]">
+      <AdminMenu />
       <Card>
         <h1 className="mb-5 flex justify-center text-3xl font-semibold tracking-wider max-phone:text-2xl">
           All Users

@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 import CategoryForm from "../../components/CategoryForm";
 import Modal from "../../components/Modal";
 import Card from "../../components/Card";
+import AdminMenu from "./AdminMenu";
 
 const CategoryList = () => {
   const { data: categories, refetch } = useFetchCategoriesQuery();
@@ -103,7 +104,7 @@ const CategoryList = () => {
 
   return (
     <div className="flex h-dvh w-dvw justify-center py-20 max-lg:pl-[4rem] lg:pl-[2rem]">
-      {/* <AdminMenu/> */}
+      <AdminMenu />
       <Card>
         <h1 className="mb-5 flex justify-center text-3xl font-semibold tracking-wider max-phone:text-2xl">
           Manage Categories
