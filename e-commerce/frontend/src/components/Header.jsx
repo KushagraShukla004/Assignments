@@ -17,6 +17,7 @@ const Header = () => {
   return (
     <div className="flex justify-around">
       <div className="hidden xl:block">
+        <h1 className="px-10 py-2 text-2xl"> Top Products </h1>
         <div className="grid grid-cols-2">
           {data.map((product) => {
             return (
