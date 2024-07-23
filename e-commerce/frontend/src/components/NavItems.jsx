@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import FavoritesCount from "../pages/Products/FavoritesCount";
 // import { useCycle } from "framer-motion";
 
 {
@@ -42,6 +43,7 @@ const NavItem = ({ icon: Icon, text, link, sidebarHover }) => {
         to={link}
         className="flex transform cursor-pointer items-center from-purple-500 from-5% to-indigo-500 to-90% hover:w-[42rem] hover:rounded-l-xl hover:bg-gradient-to-r"
       >
+        {text === "FAVORITES" && <FavoritesCount />}
         {Icon && <Icon size={40} className="px-2" strokeWidth={2} />}
 
         {sidebarHover && (

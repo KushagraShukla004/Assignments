@@ -40,11 +40,13 @@ const HeartIcon = ({ product, className }) => {
 
   return (
     <div
-      className={twMerge(clsx("absolute cursor-pointer", className))}
+      className={twMerge(
+        clsx("absolute right-2 top-2 cursor-pointer", className),
+      )}
       onClick={toggleFavorites}
     >
       {isFavorite ? (
-        <Heart className="fill-pink-500" />
+        <Heart className="fill-pink-500 text-black" />
       ) : (
         <Heart className="fill-white text-black" />
       )}

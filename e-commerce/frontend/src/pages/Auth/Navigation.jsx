@@ -127,7 +127,7 @@ const Navigation = () => {
         />
         <NavItem
           icon={Heart}
-          text="Favorites"
+          text="FAVORITES"
           link="/favorite"
           sidebarHover={sidebarHover}
         />
