@@ -122,6 +122,10 @@ shopify/
 
 # Sneak Peek:
 
+## Login & Register:
+![image](https://github.com/user-attachments/assets/74b08af9-d761-466a-b4a6-0606d0c05ed5)
+![image](https://github.com/user-attachments/assets/361157c6-52b3-4e8d-890b-b7562bf82075)
+
 ## Home:
 ![image](https://github.com/user-attachments/assets/744030e9-6507-4c77-bcab-3e776e107224)
 ![image](https://github.com/user-attachments/assets/7ee09b53-7216-42eb-a419-72c86d83aaab)
