@@ -137,9 +137,9 @@ const Shop = () => {
             </h2>
 
             <div className="p-5">
-              {uniqueBrands?.map((brand) => (
+              {uniqueBrands?.map((brand, i) => (
                 <>
-                  <div className="items-enter mb-5 mr-4 flex">
+                  <div key={i} className="items-enter mb-5 mr-4 flex">
                     <input
                       type="radio"
                       id={brand}

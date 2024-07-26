@@ -39,7 +39,7 @@ const ProductCard = ({ p }) => {
           <p className="font-semibold text-fuchsia-500">
             {p?.price?.toLocaleString("en-US", {
               style: "currency",
-              currency: "IND",
+              currency: "INR",
             })}
           </p>
         </div>
