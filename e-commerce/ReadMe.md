@@ -80,7 +80,7 @@ cd backend
 npm install
 ```
 
-- Backend:
+- Frontend:
 
 ```sh
 cd frontend
