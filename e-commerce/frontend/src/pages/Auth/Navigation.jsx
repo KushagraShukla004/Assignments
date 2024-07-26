@@ -101,7 +101,7 @@ const Navigation = () => {
               variants={textVariants}
               initial="closed"
               animate="open"
-              className={`px-2 text-3xl tracking-wide hover:max-sm:hidden`}
+              className={`px-2 text-3xl tracking-widest hover:max-sm:hidden`}
             >
               Shopify
             </motion.h1>

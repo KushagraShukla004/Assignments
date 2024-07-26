@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useGetProductsQuery } from "../redux/api/productApiSlice";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import Header from "../components/Header";
+// import Header from "../components/Header";
 import Product from "./Products/Product";
 import { motion } from "framer-motion";
 
@@ -24,7 +24,7 @@ const Home = () => {
 
   return (
     <>
-      {!keyword ? <Header /> : null}
+      {/* {!keyword ? <Header /> : null} */}
       {isLoading ? (
         <Loader />
       ) : isError ? (
@@ -33,22 +33,24 @@ const Home = () => {
         </Message>
       ) : (
         <>
-          <div className="flex items-center justify-center border">
-            <h1 className="px-20 text-[3rem]">Special Products</h1>
+          <div className="flex w-full items-center justify-center">
+            <div className="flex w-[80%] items-center justify-between">
+              <h1 className="text-[3rem]">Special Products</h1>
 
-            <Link
-              to="/shop"
-              className="rounded-full bg-gradient-to-r from-indigo-500 from-30% to-purple-500 to-90% px-10 py-2 font-bold"
-            >
-              Shop
-            </Link>
+              <Link
+                to="/shop"
+                className="h-fit rounded-full bg-gradient-to-r from-indigo-500 from-30% to-purple-500 to-90% px-10 py-2 font-bold"
+              >
+                Shop
+              </Link>
+            </div>
           </div>
-          <div className="flex min-h-screen items-center justify-center">
+          <div className="flex min-h-screen justify-center">
             <motion.div
               variants={gridContainerVariants}
               initial="hidden"
               animate="show"
-              className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+              className="grid grid-cols-1 gap-2 py-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
             >
               {data.products.map((product) => (
                 <motion.div variants={gridItemVariants} key={product._id}>

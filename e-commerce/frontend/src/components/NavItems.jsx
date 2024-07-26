@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import FavoritesCount from "../pages/Products/FavoritesCount";
-// import { useCycle } from "framer-motion";
 
 {
   /* object destructuring 101:
