@@ -5,7 +5,7 @@ import { CircleChevronRight } from "lucide-react";
 
 const Product = ({ product }) => {
   return (
-    <div className="mx-1 rounded-2xl border border-gray-700 shadow-lg ring-2 ring-slate-700">
+    <div className="mx-1 rounded-2xl border-gray-700 shadow-lg ring-2 ring-slate-700">
       <div className="relative">
         <img
           src={product.image}
@@ -15,7 +15,9 @@ const Product = ({ product }) => {
         <HeartIcon product={product} />
       </div>
       <div className="p-4">
-        <h2 className="line-clamp-1 text-lg font-bold">{product.name}</h2>
+        <h2 className="line-clamp-1 text-lg font-bold tracking-wide">
+          {product.name}
+        </h2>
         <div className="flex items-center justify-between pt-1">
           <span className="rounded-full bg-gradient-to-r from-indigo-500 from-30% to-purple-500 to-90% px-2.5 py-0.5 text-sm font-medium text-white">
             &#8377; {product.price}
