@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useGetProductsQuery } from "../redux/api/productApiSlice";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-// import Header from "../components/Header";
+import Header from "../components/Header";
 import Product from "./Products/Product";
 import { motion } from "framer-motion";
 
@@ -24,7 +24,7 @@ const Home = () => {
 
   return (
     <>
-      {/* {!keyword ? <Header /> : null} */}
+      {!keyword ? <Header /> : null}
       {isLoading ? (
         <Loader />
       ) : isError ? (

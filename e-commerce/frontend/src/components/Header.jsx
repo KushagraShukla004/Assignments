@@ -1,7 +1,7 @@
-import Loader from "../components/Loader";
-import SmallProduct from "../pages/Products/SmallProduct";
-
 import { useGetTopProductsQuery } from "../redux/api/productApiSlice";
+import Loader from "./Loader";
+import SmallProduct from "../pages/Products/SmallProduct";
+import ProductCarousel from "../pages/Products/ProductCarousel";
 
 const Header = () => {
   const { data, isLoading, error } = useGetTopProductsQuery();
@@ -15,21 +15,21 @@ const Header = () => {
   }
 
   return (
-    <div className="flex justify-around">
-      <div className="hidden xl:block">
-        <h1 className="px-10 py-2 text-2xl"> Top Products </h1>
-        <div className="grid grid-cols-2">
-          {data.map((product) => {
-            return (
-              // Ensure to return the JSX
+    <>
+      <div className="flex justify-around">
+        <div className="md:hidden:sm:hidden lg:hidden xl:block">
+          <h1 className="px-10 py-2 text-2xl"> Top Products </h1>
+          <div className="grid grid-cols-2">
+            {data.map((product) => (
               <div key={product._id}>
                 <SmallProduct product={product} />
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
+        <ProductCarousel />
       </div>
-    </div>
+    </>
   );
 };
 
