@@ -95,8 +95,9 @@ npm install
 npm run dev
 ```
 
-#Project Structure:
+# Project Structure:
 
+```php
 shopify/
 │
 ├── backend/ # Backend source files
@@ -117,3 +118,4 @@ shopify/
 ├── package.json # Root package.json for running scripts
 ├── README.md # Project documentation
 └── ...
+```
