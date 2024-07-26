@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import {
@@ -17,12 +17,12 @@ import { addToCart } from "../../redux/features/cart/cartSlice";
 
 const ProductDetails = () => {
   const { id: productId } = useParams();
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [qty, setQty] = useState(1);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
+  const [addedToCart, setAddedToCart] = useState(false);
 
   const {
     data: product,
@@ -53,8 +53,9 @@ const ProductDetails = () => {
   };
 
   const addToCartHandler = () => {
+    setAddedToCart(true);
     dispatch(addToCart({ ...product, qty }));
-    navigate("/cart");
+    toast.success(`${product.name} is added to cart`);
   };
 
   return (
@@ -151,13 +152,21 @@ const ProductDetails = () => {
               </div>
 
               <div className="btn-container">
-                <button
-                  onClick={addToCartHandler}
-                  disabled={product.countInStock === 0}
-                  className="mt-5 rounded-lg bg-purple-500 px-4 py-2 text-white md:mt-2"
-                >
-                  Add To Cart
-                </button>
+                {addedToCart ? (
+                  <Link to="/cart">
+                    <button className="mt-5 rounded-lg bg-purple-500 px-4 py-2 text-white md:mt-2">
+                      Go to Cart
+                    </button>
+                  </Link>
+                ) : (
+                  <button
+                    onClick={addToCartHandler}
+                    disabled={product.countInStock === 0}
+                    className="mt-5 rounded-lg bg-purple-500 px-4 py-2 text-white md:mt-2"
+                  >
+                    Add To Cart
+                  </button>
+                )}
               </div>
             </div>
 

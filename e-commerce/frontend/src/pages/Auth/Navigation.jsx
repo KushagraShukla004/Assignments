@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 //logo
 import LogoFilled from "../../assets/s_filled96.png";
@@ -103,7 +102,7 @@ const Navigation = () => {
               animate="open"
               className={`px-2 text-3xl tracking-widest hover:max-sm:hidden`}
             >
-              Shopify
+              <Link to="/">Shopify</Link>
             </motion.h1>
           )}
         </motion.div>

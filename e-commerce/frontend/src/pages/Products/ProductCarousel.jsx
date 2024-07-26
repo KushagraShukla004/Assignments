@@ -20,7 +20,7 @@ const ProductCarousel = () => {
   };
 
   return (
-    <div className="mb-4 md:block lg:block xl:block">
+    <div className="mb-4 hidden lg:block xl:block">
       {isLoading ? null : error ? (
         <Message variant="danger">
           {error?.data?.message || error.error}
@@ -38,7 +38,6 @@ const ProductCarousel = () => {
               price,
               description,
               brand,
-              // createdAt,
               numReviews,
               rating,
               quantity,
