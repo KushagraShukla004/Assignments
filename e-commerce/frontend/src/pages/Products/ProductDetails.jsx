@@ -58,6 +58,10 @@ const ProductDetails = () => {
     toast.success(`${product.name} is added to cart`);
   };
 
+  const handleProductChange = () => {
+    setAddedToCart(false);
+  };
+
   return (
     <>
       <div>
@@ -180,6 +184,7 @@ const ProductDetails = () => {
                 comment={comment}
                 setComment={setComment}
                 product={product}
+                handleProductChange={handleProductChange}
               />
             </div>
           </div>

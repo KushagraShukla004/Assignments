@@ -15,6 +15,7 @@ const ProductTabs = ({
   comment,
   setComment,
   product,
+  handleProductChange,
 }) => {
   const { data, isLoading } = useGetTopProductsQuery();
 
@@ -149,7 +150,7 @@ const ProductTabs = ({
               <Loader />
             ) : (
               data.map((product) => (
-                <div key={product._id}>
+                <div key={product._id} onClick={handleProductChange}>
                   <SmallProduct product={product} />
                 </div>
               ))
