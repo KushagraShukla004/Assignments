@@ -141,4 +141,4 @@ shopify/
 ## Product Details:
 ![image](https://github.com/user-attachments/assets/066ea767-0642-4097-bddb-66bbb652e3a9)
 
-#.... AND SO ON.
+# .... AND SO ON.
