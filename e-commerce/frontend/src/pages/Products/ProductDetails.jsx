@@ -88,8 +88,8 @@ const ProductDetails = () => {
             </div>
 
             <div className="flex flex-col flex-wrap justify-between">
-              <h2 className="text-2xl font-semibold">{product.name}</h2>
-              <p className="my-4 text-[#B0B0B0] md:w-[35rem] lg:w-[40rem] xl:w-[35rem]">
+              <h2 className="mt-3 text-2xl font-semibold">{product.name}</h2>
+              <p className="my-4 text-[#B0B0B0] md:w-[35rem] lg:w-[40rem] xl:w-[45rem]">
                 {product.description}
               </p>
 
@@ -131,7 +131,6 @@ const ProductDetails = () => {
                 <Ratings
                   value={product.rating}
                   text={`${product.numReviews} reviews`}
-                  color="white"
                 />
 
                 {product.countInStock > 0 && (
@@ -155,7 +154,7 @@ const ProductDetails = () => {
                 <button
                   onClick={addToCartHandler}
                   disabled={product.countInStock === 0}
-                  className="mt-4 rounded-lg bg-purple-500 px-4 py-2 text-white md:mt-0"
+                  className="mt-5 rounded-lg bg-purple-500 px-4 py-2 text-white md:mt-2"
                 >
                   Add To Cart
                 </button>
