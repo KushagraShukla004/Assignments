@@ -1,14 +1,13 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  useCreateProductMutation,
-  useUploadProductImageMutation,
-} from "../../redux/api/productApiSlice";
+import { useCreateProductMutation } from "../../redux/api/productApiSlice";
 import { useFetchCategoriesQuery } from "../../redux/api/categoryApiSlice";
 import { toast } from "react-toastify";
 import { X } from "lucide-react";
 import Card from "../../components/Card";
 import AdminMenu from "./AdminMenu";
+import { storage } from "../../firebase";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const ProductList = () => {
   const [image, setImage] = useState(null);
@@ -23,11 +22,8 @@ const ProductList = () => {
   const navigate = useNavigate();
   const fileInputRef = useRef(null);
 
-  const [uploadProductImage] = useUploadProductImageMutation();
   const [createProduct] = useCreateProductMutation();
   const { data: categories } = useFetchCategoriesQuery();
-
-  // console.log("category :", category);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,21 +31,21 @@ const ProductList = () => {
     try {
       let imagePath = "";
       if (image) {
-        const formData = new FormData();
-        formData.append("image", image);
-        const response = await uploadProductImage(formData).unwrap();
-        imagePath = response.image;
+        const storageRef = ref(storage, `images/${image.name}`); // Define a reference for the image
+        await uploadBytes(storageRef, image); // Upload the image
+        imagePath = await getDownloadURL(storageRef); // Get the download URL
       }
 
-      const productData = new FormData();
-      productData.append("image", imagePath);
-      productData.append("name", name);
-      productData.append("description", description);
-      productData.append("price", price);
-      productData.append("category", category);
-      productData.append("quantity", quantity);
-      productData.append("brand", brand);
-      productData.append("countInStock", stock);
+      const productData = {
+        image: imagePath,
+        name,
+        description,
+        price,
+        category,
+        quantity,
+        brand,
+        countInStock: stock,
+      };
 
       const { data } = await createProduct(productData);
 
