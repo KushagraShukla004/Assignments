@@ -26,8 +26,9 @@ app.use(cookieParser());
 // Enable CORS for all routes
 app.use(
   cors({
-    origin: "https://shopifyi.netlify.app", // Your frontend URL
-    credentials: true, // If you need to send cookies or auth headers
+    origin: "https://shopifyi.netlify.app",
+    methods: "*",
+    credentials: true, // send cookies or auth headers
   })
 );
 
