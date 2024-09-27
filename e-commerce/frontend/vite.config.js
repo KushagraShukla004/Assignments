@@ -10,9 +10,4 @@ export default defineConfig({
       "/uploads/": "http://localhost:5000",
     },
   },
-  build: {
-    rollupOptions: {
-      external: ["framer-motion"],
-    },
-  },
 });
