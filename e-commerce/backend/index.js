@@ -16,14 +16,6 @@ import connectDB from "./config/db.js";
 dotenv.config();
 const port = process.env.PORT || 5000;
 
-// Enable CORS for all routes
-app.use(
-  cors({
-    origin: "https://shopifyi.netlify.app", // Your frontend URL
-    credentials: true, // If you need to send cookies or auth headers
-  })
-);
-
 connectDB();
 
 const app = express();
@@ -31,6 +23,13 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+// Enable CORS for all routes
+app.use(
+  cors({
+    origin: "https://shopifyi.netlify.app", // Your frontend URL
+    credentials: true, // If you need to send cookies or auth headers
+  })
+);
 
 // Check if uploads directory exists, create if not
 const __dirname = path.resolve();
