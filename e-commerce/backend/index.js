@@ -8,12 +8,21 @@ import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
+import cors from "cors";
 
 // Utils
 import connectDB from "./config/db.js";
 
 dotenv.config();
 const port = process.env.PORT || 5000;
+
+// Enable CORS for all routes
+app.use(
+  cors({
+    origin: "https://shopifyi.netlify.app", // Your frontend URL
+    credentials: true, // If you need to send cookies or auth headers
+  })
+);
 
 connectDB();
 
