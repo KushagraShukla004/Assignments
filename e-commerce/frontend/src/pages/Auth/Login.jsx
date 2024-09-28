@@ -29,7 +29,10 @@ const Login = () => {
 
     try {
       const res = await login({ email, password }).unwrap();
+
+      console.log("login in useLoginMutation :", login);
       dispatch(setCredentials({ ...res }));
+      console.log("dispatch(setCredentials({ ...res })) :", res);
       navigate(redirect);
       toast.success(`${res.username} successfully logged in`);
     } catch (err) {

@@ -69,6 +69,7 @@ const Navigation = () => {
   const logoutHandler = async () => {
     try {
       await logoutApiCall().unwrap();
+      console.log("logoutApiCall :", logoutApiCall);
       dispatch(logout());
       setDropdownOpen(false); // Close the dropdown
       setShowSidebar(false); // Ensure the sidebar is closed
