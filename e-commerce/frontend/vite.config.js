@@ -6,8 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api/": "https://shopifyi.netlify.app",
-      "/uploads/": "https://shopifyi.netlify.app",
+      "/api/": "https://shopify-backend.up.railway.app",
+      "/uploads/": "https://shopify-backend.up.railway.app",
     },
   },
 });
