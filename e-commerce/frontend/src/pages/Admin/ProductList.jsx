@@ -36,6 +36,7 @@ const ProductList = () => {
         imagePath = await getDownloadURL(storageRef); // Get the download URL
       }
 
+      console.log("imagePath :", imagePath);
       const productData = {
         image: imagePath,
         name,
@@ -47,7 +48,11 @@ const ProductList = () => {
         countInStock: stock,
       };
 
+      console.log("productData :", productData);
+
       const { data } = await createProduct(productData);
+
+      console.log("data :", data);
 
       if (data.error) {
         toast.error("Product creation failed. Try Again.");
