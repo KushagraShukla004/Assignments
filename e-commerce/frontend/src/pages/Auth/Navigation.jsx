@@ -68,8 +68,8 @@ const Navigation = () => {
 
   const logoutHandler = async () => {
     try {
-      await logoutApiCall().unwrap();
-      console.log("logoutApiCall :", logoutApiCall);
+      const response = await logoutApiCall().unwrap(); // This should be a POST request to your logout endpoint
+      console.log("Logout Response:", response);
       dispatch(logout());
       setDropdownOpen(false); // Close the dropdown
       setShowSidebar(false); // Ensure the sidebar is closed
