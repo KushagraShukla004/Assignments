@@ -6,8 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api/": "https://shopify-backend.up.railway.app",
-      "/uploads/": "https://shopify-backend.up.railway.app",
+      "/api/": "",
+      "/uploads/": "",
     },
   },
 });

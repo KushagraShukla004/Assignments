@@ -5,16 +5,16 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "backend": "nodemon backend/index.js",
-    "start": "node backend/index.js",
-    "frontend": "npm run dev --prefix frontend",
-    "dev": "concurrently \"npm run frontend\" \"npm run backend\""
+    "dev": "cross-env NODE_ENV=development nodemon backend/index.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "cross-env NODE_ENV=production node backend/index.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "concurrently": "^8.2.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
